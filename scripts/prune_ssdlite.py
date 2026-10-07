@@ -34,8 +34,8 @@ for ratio, tag in [(0.3, "p30"), (0.5, "p50")]:
         importance=tp.importance.MagnitudeImportance(p=2),
         pruning_ratio=ratio,
         ignored_layers=[m.head],  # keep output channels = anchors x classes
-        round_to=8,
-    )  # channel counts in multiples of 8 suit TensorRT
+        round_to=None,
+    )  # same meaning of the ratio for every layer size
     pruner.step()
     macs, params = tp.utils.count_ops_and_params(m, example)
     print(tag, params / base_params, macs / base_macs)
