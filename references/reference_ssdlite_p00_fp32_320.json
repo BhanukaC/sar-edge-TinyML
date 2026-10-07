@@ -1,0 +1,77 @@
+{
+ "bus.jpg": [
+  [
+   48.68,
+   390.47,
+   224.33,
+   899.96,
+   0.99
+  ],
+  [
+   221.43,
+   402.17,
+   334.99,
+   859.58,
+   0.86
+  ],
+  [
+   676.36,
+   325.14,
+   806.94,
+   872.42,
+   0.62
+  ],
+  [
+   0.36,
+   543.13,
+   89.11,
+   879.12,
+   0.27
+  ]
+ ],
+ "crowd.jpg": [],
+ "gss1087_jpg.rf.7f6ada757634adbf62175271e48b5b50.jpg": [],
+ "gss1093_jpg.rf.8726c04dc378017b08a74cfd6bdd00bf.jpg": [],
+ "gss1098_jpg.rf.2bf6d029b423fc1244097dfa426b6118.jpg": [],
+ "gss1291_jpg.rf.df26bf4ad7a52297871cab0583a1c626.jpg": [],
+ "gss1312_jpg.rf.60901603cd2062876bed37bc845c245e.jpg": [],
+ "gss1320_jpg.rf.5dd196d0543c16cf7886540032036f46.jpg": [],
+ "gss1338_jpg.rf.8b6fb3b36c4cb44a1f26844d4c0ae43f.jpg": [
+  [
+   1556.2,
+   888.13,
+   1793.76,
+   1079.83,
+   0.25
+  ]
+ ],
+ "gss1401_jpg.rf.f9b0704c4735345454580f2d3e8dd1b9.jpg": [],
+ "gss1553_jpg.rf.6c91b565e4eedf1f8eb16d6436381cab.jpg": [],
+ "gss1556_jpg.rf.4f23da9806af51a535f66c23c7d7718d.jpg": [],
+ "gss157_jpg.rf.3e87f40e25cce5e3380032e11f6e94cf.jpg": [],
+ "gss1618_jpg.rf.75973bab1fbb5ccbfb672909a98653c4.jpg": [],
+ "gss1674_jpg.rf.4cd253eeec5c8ad2864e325ac48f7b9c.jpg": [],
+ "gss2016_jpg.rf.f46070f116a3c77049d85aee0a619d38.jpg": [],
+ "gss395_jpg.rf.8da74679dfb224a8966de6c1db0d3348.jpg": [
+  [
+   1496.58,
+   598.69,
+   1587.99,
+   744.03,
+   0.25
+  ]
+ ],
+ "gss533_jpg.rf.629692e8dd245a073fe7fcc37a86a5e7.jpg": [],
+ "gss670_jpg.rf.c2e00fdac701a42ccd148ea2494f1b63.jpg": [],
+ "gss750_jpg.rf.16c48940cde6cea3a2ab4cbb9740e908.jpg": [],
+ "gss906_jpg.rf.f12dc07cb0eb3270cdb1ecef2468b683.jpg": [],
+ "gss911_jpg.rf.5e5bf919ba3694eec8f7b29019d09f42.jpg": [
+  [
+   1098.95,
+   669.1,
+   1346.22,
+   959.87,
+   0.26
+  ]
+ ]
+}
