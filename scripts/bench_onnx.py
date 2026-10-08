@@ -7,6 +7,7 @@ import os, sys, glob, json, time, re, threading, subprocess
 sys.path.insert(
     0, os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 )  # repo root
+import itertools
 import cv2, numpy as np, onnxruntime as ort
 import common as C
 
@@ -78,7 +79,11 @@ def bench(path):
     sampler = Sampler()
     sampler.start()
     times = []
-    for i in range(RUNS):
+    t_start = time.perf_counter()
+    # at least RUNS runs AND at least 20 s, so power gets about 40 samples
+    for i in itertools.count():
+        if i >= RUNS and time.perf_counter() - t_start >= 20:
+            break
         x = prepped[i % len(prepped)][2][0]
         t = time.perf_counter()
         s.run(None, {inp: x})
@@ -109,7 +114,7 @@ def bench(path):
         ref_bus = len(json.load(fh).get("bus.jpg", []))
     res = {
         "model": name,
-        "runs": RUNS,
+        "runs": len(times),
         "threads": 4,
         "latency_mean_ms": round(float(np.mean(times)), 2),
         "latency_p95_ms": round(float(np.percentile(times, 95)), 2),
