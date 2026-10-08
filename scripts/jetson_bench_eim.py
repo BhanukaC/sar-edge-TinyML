@@ -18,8 +18,12 @@ class Tegra(threading.Thread):
     def __init__(self):
         super().__init__(daemon=True)
         self.power, self.temps = [], []
-        self.proc = subprocess.Popen(["tegrastats", "--interval", "500"],
-                                     stdout=subprocess.PIPE, text=True)
+        # sudo: without it tegrastats leaves out the power sensor (POM_5V_IN)
+        self.proc = subprocess.Popen(
+            ["sudo", "-n", "tegrastats", "--interval", "500"],
+            stdout=subprocess.PIPE,
+            text=True,
+        )
     def run(self):
         for line in self.proc.stdout:
             p = re.search(r"POM_5V_IN (\d+)/", line)
@@ -28,8 +32,12 @@ class Tegra(threading.Thread):
                 self.power.append(int(p.group(1)) / 1000.0)
             if t:
                 self.temps.append(float(t.group(1)))
+
     def stop(self):
-        self.proc.terminate()
+        subprocess.run(
+            ["sudo", "-n", "pkill", "tegrastats"]
+        )  # sudo'd process needs sudo to stop
+        self.proc.wait(timeout=5)
         self.join(timeout=2)
 
 
