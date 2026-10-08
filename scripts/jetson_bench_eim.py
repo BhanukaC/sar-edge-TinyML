@@ -1,4 +1,4 @@
- sar-edge/scripts/jetson_bench_eim.py   run on the Jetson in the Python 3.8 venv (~/sar38),
+# sar-edge/scripts/jetson_bench_eim.py   run on the Jetson in the Python 3.8 venv (~/sar38),
 # from the repo folder: python scripts/jetson_bench_eim.py [pattern]
 # Benchmarks the Jetson FOMO builds (.eim, GPU) like bench_eim.py does on the Pi:
 # latency, FPS, power and GPU temperature from tegrastats, people on bus.jpg and crowd.jpg.
