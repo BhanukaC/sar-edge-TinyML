@@ -78,7 +78,7 @@ def bench(path):
         # at least RUNS runs AND at least 20 s, so power gets about 40 samples
         for i in itertools.count():
             if i >= RUNS and time.perf_counter() - t_start >= 20:
-                   break
+                break
             t = time.perf_counter()
             res = runner.classify(feats[keys[i % len(keys)]])
             times.append((time.perf_counter() - t) * 1000)
@@ -97,7 +97,7 @@ def bench(path):
 
     res = {
         "model": name,
-        "runs": RUNS,
+        "runs": len(times),
         "latency_mean_ms": round(
             float(np.mean(times)), 2
         ),  # includes talking to the .eim process
