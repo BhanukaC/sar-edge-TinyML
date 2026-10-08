@@ -6,6 +6,7 @@ import cv2, numpy as np
 from edge_impulse_linux.image import ImageImpulseRunner
 
 PATTERN = sys.argv[1] if len(sys.argv) > 1 else "models/fomo-*_p00_*_320.eim"
+SKIP = "_jetson_"  # Jetson builds need CUDA and hang on the Pi
 WARMUP, RUNS = 10, 100
 OUT = "results/pi"
 os.makedirs(OUT, exist_ok=True)
@@ -129,6 +130,8 @@ def bench(path):
 
 
 for path in sorted(glob.glob(PATTERN)):
+    if SKIP in path:
+        continue
     bench(path)
     time.sleep(5)  # let the board cool down between models
 print(
