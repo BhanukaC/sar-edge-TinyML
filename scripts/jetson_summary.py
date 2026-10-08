@@ -23,14 +23,22 @@ rows = []
 for f in sorted(glob.glob("results/jetson/*_trtexec.txt")):
     tag = os.path.basename(f)[: -len("_trtexec.txt")]  # <model>_<mode>
     text = open(f).read()
-    gpu = [l for l in text.splitlines() if "GPU Compute Time" in l]
-    mean = re.search(r"mean = ([\d.]+) ms", gpu[-1]) if gpu else None
-    p99 = re.search(r"percentile\(99%\) = ([\d.]+) ms", gpu[-1]) if gpu else None
+    # TensorRT 8.2 writes "GPU Compute: min: .., mean: .. ms, .. percentile: .. ms at 99%";
+    # newer versions write "GPU Compute Time: .. mean = .. ms, .. percentile(99%) = .. ms"
+    gpu = [l for l in text.splitlines() if "GPU Compute" in l]
+    mean = re.search(r"mean[:=] ([\d.]+) ms", gpu[-1]) if gpu else None
+    p99 = (
+        re.search(
+            r"percentile\(99%\) = ([\d.]+) ms|percentile: ([\d.]+) ms at 99%", gpu[-1]
+        )
+        if gpu
+        else None
+    )
     thr = re.search(r"Throughput: ([\d.]+) qps", text)
     row = {
         "run": tag,
         "gpu_mean_ms": float(mean.group(1)) if mean else None,
-        "gpu_p99_ms": float(p99.group(1)) if p99 else None,
+        "gpu_p99_ms": float(p99.group(1) or p99.group(2)) if p99 else None,
         "fps": float(thr.group(1)) if thr else None,
         "power_idle_w": avg_power_w("results/jetson/%s_idle.log" % tag),
         "power_load_w": avg_power_w("results/jetson/%s_tegrastats.log" % tag),
