@@ -2,6 +2,7 @@
 # Benchmarks Edge Impulse FOMO models (.eim) the same way bench_onnx.py does ONNX:
 # latency, FPS, power, temperature, and people counted on bus.jpg and crowd.jpg.
 import os, sys, glob, json, time, re, threading, subprocess
+import itertools
 import cv2, numpy as np
 from edge_impulse_linux.image import ImageImpulseRunner
 
@@ -73,7 +74,11 @@ def bench(path):
         sampler = Sampler()
         sampler.start()
         times, ei_times = [], []
-        for i in range(RUNS):
+        t_start = time.perf_counter()
+        # at least RUNS runs AND at least 20 s, so power gets about 40 samples
+        for i in itertools.count():
+            if i >= RUNS and time.perf_counter() - t_start >= 20:
+                   break
             t = time.perf_counter()
             res = runner.classify(feats[keys[i % len(keys)]])
             times.append((time.perf_counter() - t) * 1000)
