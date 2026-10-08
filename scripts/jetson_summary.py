@@ -26,7 +26,7 @@ for f in sorted(glob.glob("results/jetson/*_trtexec.txt")):
     # TensorRT 8.2 writes "GPU Compute: min: .., mean: .. ms, .. percentile: .. ms at 99%";
     # newer versions write "GPU Compute Time: .. mean = .. ms, .. percentile(99%) = .. ms"
     gpu = [l for l in text.splitlines() if "GPU Compute" in l and "Total" not in l]
-    mean = re.search(r"mean[:=] ([\d.]+) ms", gpu[-1]) if gpu else None
+    mean = re.search(r"mean\s*[:=]\s*([\d.]+) ms", gpu[-1]) if gpu else None
     p99 = (
         re.search(
             r"percentile\(99%\) = ([\d.]+) ms|percentile: ([\d.]+) ms at 99%", gpu[-1]
