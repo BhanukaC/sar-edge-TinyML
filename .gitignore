@@ -2,3 +2,6 @@
 data/SARD/
 data/fomo_upload/
 results/refs/
+engines/
+tmp/
+build.log
