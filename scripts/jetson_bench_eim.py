@@ -19,11 +19,8 @@ class Tegra(threading.Thread):
         super().__init__(daemon=True)
         self.power, self.temps = [], []
         # sudo: without it tegrastats leaves out the power sensor (POM_5V_IN)
-        self.proc = subprocess.Popen(
-            ["sudo", "-n", "tegrastats", "--interval", "500"],
-            stdout=subprocess.PIPE,
-            text=True,
-        )
+        self.proc = subprocess.Popen(["sudo", "-n", "tegrastats", "--interval", "500"],
+                                     stdout=subprocess.PIPE, text=True)
     def run(self):
         for line in self.proc.stdout:
             p = re.search(r"POM_5V_IN (\d+)/", line)
@@ -32,11 +29,8 @@ class Tegra(threading.Thread):
                 self.power.append(int(p.group(1)) / 1000.0)
             if t:
                 self.temps.append(float(t.group(1)))
-
     def stop(self):
-        subprocess.run(
-            ["sudo", "-n", "pkill", "tegrastats"]
-        )  # sudo'd process needs sudo to stop
+        subprocess.run(["sudo", "-n", "pkill", "tegrastats"])   # sudo'd process needs sudo to stop
         self.proc.wait(timeout=5)
         self.join(timeout=2)
 
@@ -75,15 +69,16 @@ def bench(path, mode):
 
         load = Tegra()
         load.start()
-        times = []
+        times, ei_times = [], []
         t_start = time.perf_counter()
         # at least RUNS runs AND at least 20 s, so power gets about 40 samples
         for i in itertools.count():
             if i >= RUNS and time.perf_counter() - t_start >= 20:
                 break
             t = time.perf_counter()
-            runner.classify(feats[keys[i % len(keys)]])
+            out = runner.classify(feats[keys[i % len(keys)]])
             times.append((time.perf_counter() - t) * 1000)
+            ei_times.append(out["timing"]["classification"])   # model time as reported by the .eim
         load.stop()
 
         counts = {k: len(runner.classify(feats[k])["result"].get("bounding_boxes", []))
@@ -95,6 +90,7 @@ def bench(path, mode):
         "model": name, "power_mode": mode, "runs": len(times),
         "latency_mean_ms": round(float(np.mean(times)), 2),          # includes talking to the .eim process
         "latency_p95_ms": round(float(np.percentile(times, 95)), 2),
+        "model_time_mean_ms": round(float(np.mean(ei_times)), 2),     # the .eim's own measurement
         "fps": round(1000.0 / float(np.mean(times)), 1),
         "power_idle_w": round(float(np.mean(idle.power)), 2) if idle.power else None,
         "power_load_w": round(float(np.mean(load.power)), 2) if load.power else None,
@@ -103,8 +99,8 @@ def bench(path, mode):
     }
     with open(os.path.join(OUT, "%s_%s_bench.json" % (name, mode)), "w") as fh:
         json.dump(res, fh, indent=1)
-    print("%-26s %s %6.1f ms p95 %6.1f  %5.1f FPS | %s W (idle %s) | %s C | bus %d crowd %d"
-          % (name, mode, res["latency_mean_ms"], res["latency_p95_ms"], res["fps"],
+    print("%-26s %s %6.1f ms (model %5.1f) p95 %6.1f  %5.1f FPS | %s W (idle %s) | %s C | bus %d crowd %d"
+          % (name, mode, res["latency_mean_ms"], res["model_time_mean_ms"], res["latency_p95_ms"], res["fps"],
              res["power_load_w"], res["power_idle_w"], res["gpu_temp_max_c"],
              counts["bus.jpg"], counts["crowd.jpg"]), flush=True)
 

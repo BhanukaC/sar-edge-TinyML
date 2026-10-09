@@ -1,0 +1,20 @@
+[
+ {
+  "run": "yolo26n_p00_fp16_640_5W",
+  "gpu_mean_ms": 70.4778,
+  "gpu_p99_ms": 70.519,
+  "fps": 14.0054,
+  "power_idle_w": 1.11,
+  "power_load_w": 3.52,
+  "gpu_temp_max_c": 33.5
+ },
+ {
+  "run": "yolo26n_p00_fp32_640_5W",
+  "gpu_mean_ms": 90.5699,
+  "gpu_p99_ms": 90.6836,
+  "fps": 10.9301,
+  "power_idle_w": 1.14,
+  "power_load_w": 3.71,
+  "gpu_temp_max_c": 34.5
+ }
+]

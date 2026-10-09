@@ -1,0 +1,14 @@
+{
+ "model": "fomo-a035_p00_jetson_320",
+ "power_mode": "5W",
+ "runs": 368,
+ "latency_mean_ms": 54.36,
+ "latency_p95_ms": 56.88,
+ "model_time_mean_ms": 22.06,
+ "fps": 18.4,
+ "power_idle_w": 1.19,
+ "power_load_w": 2.61,
+ "gpu_temp_max_c": 32.0,
+ "bus_people": 17,
+ "crowd_people": 3
+}
