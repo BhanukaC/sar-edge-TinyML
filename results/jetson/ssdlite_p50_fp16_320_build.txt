@@ -1,0 +1,319 @@
+&&&& RUNNING TensorRT.trtexec [TensorRT v8201] # /usr/src/tensorrt/bin/trtexec --onnx=models/ssdlite_p50_fp32_320.onnx --saveEngine=engines/ssdlite_p50_fp16_320.engine --fp16 --workspace=1024
+[10/09/2026-03:17:30] [I] === Model Options ===
+[10/09/2026-03:17:30] [I] Format: ONNX
+[10/09/2026-03:17:30] [I] Model: models/ssdlite_p50_fp32_320.onnx
+[10/09/2026-03:17:30] [I] Output:
+[10/09/2026-03:17:30] [I] === Build Options ===
+[10/09/2026-03:17:30] [I] Max batch: explicit batch
+[10/09/2026-03:17:30] [I] Workspace: 1024 MiB
+[10/09/2026-03:17:30] [I] minTiming: 1
+[10/09/2026-03:17:30] [I] avgTiming: 8
+[10/09/2026-03:17:30] [I] Precision: FP32+FP16
+[10/09/2026-03:17:30] [I] Calibration: 
+[10/09/2026-03:17:30] [I] Refit: Disabled
+[10/09/2026-03:17:30] [I] Sparsity: Disabled
+[10/09/2026-03:17:30] [I] Safe mode: Disabled
+[10/09/2026-03:17:30] [I] DirectIO mode: Disabled
+[10/09/2026-03:17:30] [I] Restricted mode: Disabled
+[10/09/2026-03:17:30] [I] Save engine: engines/ssdlite_p50_fp16_320.engine
+[10/09/2026-03:17:30] [I] Load engine: 
+[10/09/2026-03:17:30] [I] Profiling verbosity: 0
+[10/09/2026-03:17:30] [I] Tactic sources: Using default tactic sources
+[10/09/2026-03:17:30] [I] timingCacheMode: local
+[10/09/2026-03:17:30] [I] timingCacheFile: 
+[10/09/2026-03:17:30] [I] Input(s)s format: fp32:CHW
+[10/09/2026-03:17:30] [I] Output(s)s format: fp32:CHW
+[10/09/2026-03:17:30] [I] Input build shapes: model
+[10/09/2026-03:17:30] [I] Input calibration shapes: model
+[10/09/2026-03:17:30] [I] === System Options ===
+[10/09/2026-03:17:30] [I] Device: 0
+[10/09/2026-03:17:30] [I] DLACore: 
+[10/09/2026-03:17:30] [I] Plugins:
+[10/09/2026-03:17:30] [I] === Inference Options ===
+[10/09/2026-03:17:30] [I] Batch: Explicit
+[10/09/2026-03:17:30] [I] Input inference shapes: model
+[10/09/2026-03:17:30] [I] Iterations: 10
+[10/09/2026-03:17:30] [I] Duration: 3s (+ 200ms warm up)
+[10/09/2026-03:17:30] [I] Sleep time: 0ms
+[10/09/2026-03:17:30] [I] Idle time: 0ms
+[10/09/2026-03:17:30] [I] Streams: 1
+[10/09/2026-03:17:30] [I] ExposeDMA: Disabled
+[10/09/2026-03:17:30] [I] Data transfers: Enabled
+[10/09/2026-03:17:30] [I] Spin-wait: Disabled
+[10/09/2026-03:17:30] [I] Multithreading: Disabled
+[10/09/2026-03:17:30] [I] CUDA Graph: Disabled
+[10/09/2026-03:17:30] [I] Separate profiling: Disabled
+[10/09/2026-03:17:30] [I] Time Deserialize: Disabled
+[10/09/2026-03:17:30] [I] Time Refit: Disabled
+[10/09/2026-03:17:30] [I] Skip inference: Disabled
+[10/09/2026-03:17:30] [I] Inputs:
+[10/09/2026-03:17:30] [I] === Reporting Options ===
+[10/09/2026-03:17:30] [I] Verbose: Disabled
+[10/09/2026-03:17:30] [I] Averages: 10 inferences
+[10/09/2026-03:17:30] [I] Percentile: 99
+[10/09/2026-03:17:30] [I] Dump refittable layers:Disabled
+[10/09/2026-03:17:30] [I] Dump output: Disabled
+[10/09/2026-03:17:30] [I] Profile: Disabled
+[10/09/2026-03:17:30] [I] Export timing to JSON file: 
+[10/09/2026-03:17:30] [I] Export output to JSON file: 
+[10/09/2026-03:17:30] [I] Export profile to JSON file: 
+[10/09/2026-03:17:30] [I] 
+[10/09/2026-03:17:30] [I] === Device Information ===
+[10/09/2026-03:17:30] [I] Selected Device: NVIDIA Tegra X1
+[10/09/2026-03:17:30] [I] Compute Capability: 5.3
+[10/09/2026-03:17:30] [I] SMs: 1
+[10/09/2026-03:17:30] [I] Compute Clock Rate: 0.9216 GHz
+[10/09/2026-03:17:30] [I] Device Global Memory: 3964 MiB
+[10/09/2026-03:17:30] [I] Shared Memory per SM: 64 KiB
+[10/09/2026-03:17:30] [I] Memory Bus Width: 64 bits (ECC disabled)
+[10/09/2026-03:17:30] [I] Memory Clock Rate: 0.01275 GHz
+[10/09/2026-03:17:30] [I] 
+[10/09/2026-03:17:30] [I] TensorRT version: 8.2.1
+[10/09/2026-03:17:33] [I] [TRT] [MemUsageChange] Init CUDA: CPU +229, GPU +0, now: CPU 248, GPU 2400 (MiB)
+[10/09/2026-03:17:33] [I] [TRT] [MemUsageSnapshot] Begin constructing builder kernel library: CPU 248 MiB, GPU 2401 MiB
+[10/09/2026-03:17:33] [I] [TRT] [MemUsageSnapshot] End constructing builder kernel library: CPU 278 MiB, GPU 2430 MiB
+[10/09/2026-03:17:33] [I] Start parsing network model
+[10/09/2026-03:17:33] [I] [TRT] ----------------------------------------------------------------
+[10/09/2026-03:17:33] [I] [TRT] Input filename:   models/ssdlite_p50_fp32_320.onnx
+[10/09/2026-03:17:33] [I] [TRT] ONNX IR version:  0.0.7
+[10/09/2026-03:17:33] [I] [TRT] Opset version:    12
+[10/09/2026-03:17:33] [I] [TRT] Producer name:    pytorch
+[10/09/2026-03:17:33] [I] [TRT] Producer version: 2.14.1
+[10/09/2026-03:17:33] [I] [TRT] Domain:           
+[10/09/2026-03:17:33] [I] [TRT] Model version:    0
+[10/09/2026-03:17:33] [I] [TRT] Doc string:       
+[10/09/2026-03:17:33] [I] [TRT] ----------------------------------------------------------------
+[10/09/2026-03:17:33] [W] [TRT] onnx2trt_utils.cpp:366: Your ONNX model has been generated with INT64 weights, while TensorRT does not natively support INT64. Attempting to cast down to INT32.
+[10/09/2026-03:17:34] [I] Finish parsing network model
+[10/09/2026-03:17:34] [I] [TRT] ---------- Layers Running on DLA ----------
+[10/09/2026-03:17:34] [I] [TRT] ---------- Layers Running on GPU ----------
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /backbone/features.0/features.0.0/features.0.0.0/Conv
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] PWN(PWN(/backbone/features.0/features.0.0/features.0.0.2/HardSigmoid), /backbone/features.0/features.0.0/features.0.0.2/Mul)
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /backbone/features.0/features.0.1/block/block.0/block.0.0/Conv + /backbone/features.0/features.0.1/block/block.0/block.0.2/Relu
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /backbone/features.0/features.0.1/block/block.1/block.1.0/Conv + /backbone/features.0/features.0.1/Add
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /backbone/features.0/features.0.2/block/block.0/block.0.0/Conv + /backbone/features.0/features.0.2/block/block.0/block.0.2/Relu
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /backbone/features.0/features.0.2/block/block.1/block.1.0/Conv + /backbone/features.0/features.0.2/block/block.1/block.1.2/Relu
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /backbone/features.0/features.0.2/block/block.2/block.2.0/Conv
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /backbone/features.0/features.0.3/block/block.0/block.0.0/Conv + /backbone/features.0/features.0.3/block/block.0/block.0.2/Relu
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /backbone/features.0/features.0.3/block/block.1/block.1.0/Conv + /backbone/features.0/features.0.3/block/block.1/block.1.2/Relu
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /backbone/features.0/features.0.3/block/block.2/block.2.0/Conv + /backbone/features.0/features.0.3/Add
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /backbone/features.0/features.0.4/block/block.0/block.0.0/Conv + /backbone/features.0/features.0.4/block/block.0/block.0.2/Relu
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /backbone/features.0/features.0.4/block/block.1/block.1.0/Conv + /backbone/features.0/features.0.4/block/block.1/block.1.2/Relu
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /backbone/features.0/features.0.4/block/block.2/avgpool/GlobalAveragePool
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /backbone/features.0/features.0.4/block/block.2/fc1/Conv + /backbone/features.0/features.0.4/block/block.2/activation/Relu
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /backbone/features.0/features.0.4/block/block.2/fc2/Conv
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] PWN(PWN(/backbone/features.0/features.0.4/block/block.2/scale_activation/HardSigmoid), /backbone/features.0/features.0.4/block/block.2/Mul)
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /backbone/features.0/features.0.4/block/block.3/block.3.0/Conv
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /backbone/features.0/features.0.5/block/block.0/block.0.0/Conv + /backbone/features.0/features.0.5/block/block.0/block.0.2/Relu
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /backbone/features.0/features.0.5/block/block.1/block.1.0/Conv + /backbone/features.0/features.0.5/block/block.1/block.1.2/Relu
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /backbone/features.0/features.0.5/block/block.2/avgpool/GlobalAveragePool
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /backbone/features.0/features.0.5/block/block.2/fc1/Conv + /backbone/features.0/features.0.5/block/block.2/activation/Relu
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /backbone/features.0/features.0.5/block/block.2/fc2/Conv
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] PWN(PWN(/backbone/features.0/features.0.5/block/block.2/scale_activation/HardSigmoid), /backbone/features.0/features.0.5/block/block.2/Mul)
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /backbone/features.0/features.0.5/block/block.3/block.3.0/Conv + /backbone/features.0/features.0.5/Add
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /backbone/features.0/features.0.6/block/block.0/block.0.0/Conv + /backbone/features.0/features.0.6/block/block.0/block.0.2/Relu
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /backbone/features.0/features.0.6/block/block.1/block.1.0/Conv + /backbone/features.0/features.0.6/block/block.1/block.1.2/Relu
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /backbone/features.0/features.0.6/block/block.2/avgpool/GlobalAveragePool
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /backbone/features.0/features.0.6/block/block.2/fc1/Conv + /backbone/features.0/features.0.6/block/block.2/activation/Relu
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /backbone/features.0/features.0.6/block/block.2/fc2/Conv
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] PWN(PWN(/backbone/features.0/features.0.6/block/block.2/scale_activation/HardSigmoid), /backbone/features.0/features.0.6/block/block.2/Mul)
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /backbone/features.0/features.0.6/block/block.3/block.3.0/Conv + /backbone/features.0/features.0.6/Add
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /backbone/features.0/features.0.7/block/block.0/block.0.0/Conv
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] PWN(PWN(/backbone/features.0/features.0.7/block/block.0/block.0.2/HardSigmoid), /backbone/features.0/features.0.7/block/block.0/block.0.2/Mul)
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /backbone/features.0/features.0.7/block/block.1/block.1.0/Conv
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] PWN(PWN(/backbone/features.0/features.0.7/block/block.1/block.1.2/HardSigmoid), /backbone/features.0/features.0.7/block/block.1/block.1.2/Mul)
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /backbone/features.0/features.0.7/block/block.2/block.2.0/Conv
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /backbone/features.0/features.0.8/block/block.0/block.0.0/Conv
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] PWN(PWN(/backbone/features.0/features.0.8/block/block.0/block.0.2/HardSigmoid), /backbone/features.0/features.0.8/block/block.0/block.0.2/Mul)
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /backbone/features.0/features.0.8/block/block.1/block.1.0/Conv
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] PWN(PWN(/backbone/features.0/features.0.8/block/block.1/block.1.2/HardSigmoid), /backbone/features.0/features.0.8/block/block.1/block.1.2/Mul)
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /backbone/features.0/features.0.8/block/block.2/block.2.0/Conv + /backbone/features.0/features.0.8/Add
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /backbone/features.0/features.0.9/block/block.0/block.0.0/Conv
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] PWN(PWN(/backbone/features.0/features.0.9/block/block.0/block.0.2/HardSigmoid), /backbone/features.0/features.0.9/block/block.0/block.0.2/Mul)
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /backbone/features.0/features.0.9/block/block.1/block.1.0/Conv
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] PWN(PWN(/backbone/features.0/features.0.9/block/block.1/block.1.2/HardSigmoid), /backbone/features.0/features.0.9/block/block.1/block.1.2/Mul)
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /backbone/features.0/features.0.9/block/block.2/block.2.0/Conv + /backbone/features.0/features.0.9/Add
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /backbone/features.0/features.0.10/block/block.0/block.0.0/Conv
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] PWN(PWN(/backbone/features.0/features.0.10/block/block.0/block.0.2/HardSigmoid), /backbone/features.0/features.0.10/block/block.0/block.0.2/Mul)
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /backbone/features.0/features.0.10/block/block.1/block.1.0/Conv
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] PWN(PWN(/backbone/features.0/features.0.10/block/block.1/block.1.2/HardSigmoid), /backbone/features.0/features.0.10/block/block.1/block.1.2/Mul)
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /backbone/features.0/features.0.10/block/block.2/block.2.0/Conv + /backbone/features.0/features.0.10/Add
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /backbone/features.0/features.0.11/block/block.0/block.0.0/Conv
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] PWN(PWN(/backbone/features.0/features.0.11/block/block.0/block.0.2/HardSigmoid), /backbone/features.0/features.0.11/block/block.0/block.0.2/Mul)
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /backbone/features.0/features.0.11/block/block.1/block.1.0/Conv
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] PWN(PWN(/backbone/features.0/features.0.11/block/block.1/block.1.2/HardSigmoid), /backbone/features.0/features.0.11/block/block.1/block.1.2/Mul)
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /backbone/features.0/features.0.11/block/block.2/avgpool/GlobalAveragePool
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /backbone/features.0/features.0.11/block/block.2/fc1/Conv + /backbone/features.0/features.0.11/block/block.2/activation/Relu
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /backbone/features.0/features.0.11/block/block.2/fc2/Conv
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] PWN(PWN(/backbone/features.0/features.0.11/block/block.2/scale_activation/HardSigmoid), /backbone/features.0/features.0.11/block/block.2/Mul)
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /backbone/features.0/features.0.11/block/block.3/block.3.0/Conv
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /backbone/features.0/features.0.12/block/block.0/block.0.0/Conv
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] PWN(PWN(/backbone/features.0/features.0.12/block/block.0/block.0.2/HardSigmoid), /backbone/features.0/features.0.12/block/block.0/block.0.2/Mul)
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /backbone/features.0/features.0.12/block/block.1/block.1.0/Conv
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] PWN(PWN(/backbone/features.0/features.0.12/block/block.1/block.1.2/HardSigmoid), /backbone/features.0/features.0.12/block/block.1/block.1.2/Mul)
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /backbone/features.0/features.0.12/block/block.2/avgpool/GlobalAveragePool
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /backbone/features.0/features.0.12/block/block.2/fc1/Conv + /backbone/features.0/features.0.12/block/block.2/activation/Relu
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /backbone/features.0/features.0.12/block/block.2/fc2/Conv
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] PWN(PWN(/backbone/features.0/features.0.12/block/block.2/scale_activation/HardSigmoid), /backbone/features.0/features.0.12/block/block.2/Mul)
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /backbone/features.0/features.0.12/block/block.3/block.3.0/Conv + /backbone/features.0/features.0.12/Add
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /backbone/features.0/features.0.13/features.0.13.0/Conv
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] PWN(PWN(/backbone/features.0/features.0.13/features.0.13.2/HardSigmoid), /backbone/features.0/features.0.13/features.0.13.2/Mul)
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /backbone/features.1/features.1.0/features.1.0.1/features.1.0.1.0/Conv
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] PWN(PWN(/backbone/features.1/features.1.0/features.1.0.1/features.1.0.1.2/HardSigmoid), /backbone/features.1/features.1.0/features.1.0.1/features.1.0.1.2/Mul)
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /backbone/features.1/features.1.0/features.1.0.2/avgpool/GlobalAveragePool
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /backbone/features.1/features.1.0/features.1.0.2/fc1/Conv + /backbone/features.1/features.1.0/features.1.0.2/activation/Relu
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /backbone/features.1/features.1.0/features.1.0.2/fc2/Conv
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] PWN(PWN(/backbone/features.1/features.1.0/features.1.0.2/scale_activation/HardSigmoid), /backbone/features.1/features.1.0/features.1.0.2/Mul)
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /backbone/features.1/features.1.0/features.1.0.3/features.1.0.3.0/Conv
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /backbone/features.1/features.1.1/block/block.0/block.0.0/Conv
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] PWN(PWN(/backbone/features.1/features.1.1/block/block.0/block.0.2/HardSigmoid), /backbone/features.1/features.1.1/block/block.0/block.0.2/Mul)
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /backbone/features.1/features.1.1/block/block.1/block.1.0/Conv
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] PWN(PWN(/backbone/features.1/features.1.1/block/block.1/block.1.2/HardSigmoid), /backbone/features.1/features.1.1/block/block.1/block.1.2/Mul)
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /backbone/features.1/features.1.1/block/block.2/avgpool/GlobalAveragePool
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /backbone/features.1/features.1.1/block/block.2/fc1/Conv + /backbone/features.1/features.1.1/block/block.2/activation/Relu
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /backbone/features.1/features.1.1/block/block.2/fc2/Conv
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] PWN(PWN(/backbone/features.1/features.1.1/block/block.2/scale_activation/HardSigmoid), /backbone/features.1/features.1.1/block/block.2/Mul)
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /backbone/features.1/features.1.1/block/block.3/block.3.0/Conv + /backbone/features.1/features.1.1/Add
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /backbone/features.1/features.1.2/block/block.0/block.0.0/Conv
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] PWN(PWN(/backbone/features.1/features.1.2/block/block.0/block.0.2/HardSigmoid), /backbone/features.1/features.1.2/block/block.0/block.0.2/Mul)
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /backbone/features.1/features.1.2/block/block.1/block.1.0/Conv
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] PWN(PWN(/backbone/features.1/features.1.2/block/block.1/block.1.2/HardSigmoid), /backbone/features.1/features.1.2/block/block.1/block.1.2/Mul)
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /backbone/features.1/features.1.2/block/block.2/avgpool/GlobalAveragePool
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /backbone/features.1/features.1.2/block/block.2/fc1/Conv + /backbone/features.1/features.1.2/block/block.2/activation/Relu
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /backbone/features.1/features.1.2/block/block.2/fc2/Conv
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] PWN(PWN(/backbone/features.1/features.1.2/block/block.2/scale_activation/HardSigmoid), /backbone/features.1/features.1.2/block/block.2/Mul)
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /backbone/features.1/features.1.2/block/block.3/block.3.0/Conv + /backbone/features.1/features.1.2/Add
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /backbone/features.1/features.1.3/features.1.3.0/Conv
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] PWN(PWN(/backbone/features.1/features.1.3/features.1.3.2/HardSigmoid), /backbone/features.1/features.1.3/features.1.3.2/Mul)
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /backbone/extra.0/extra.0.0/extra.0.0.0/Conv + PWN(/backbone/extra.0/extra.0.0/extra.0.0.2/Clip)
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /backbone/extra.0/extra.0.1/extra.0.1.0/Conv + PWN(/backbone/extra.0/extra.0.1/extra.0.1.2/Clip)
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /backbone/extra.0/extra.0.2/extra.0.2.0/Conv + PWN(/backbone/extra.0/extra.0.2/extra.0.2.2/Clip)
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /backbone/extra.1/extra.1.0/extra.1.0.0/Conv + PWN(/backbone/extra.1/extra.1.0/extra.1.0.2/Clip)
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /backbone/extra.1/extra.1.1/extra.1.1.0/Conv + PWN(/backbone/extra.1/extra.1.1/extra.1.1.2/Clip)
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /backbone/extra.1/extra.1.2/extra.1.2.0/Conv + PWN(/backbone/extra.1/extra.1.2/extra.1.2.2/Clip)
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /backbone/extra.2/extra.2.0/extra.2.0.0/Conv + PWN(/backbone/extra.2/extra.2.0/extra.2.0.2/Clip)
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /backbone/extra.2/extra.2.1/extra.2.1.0/Conv + PWN(/backbone/extra.2/extra.2.1/extra.2.1.2/Clip)
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /backbone/extra.2/extra.2.2/extra.2.2.0/Conv + PWN(/backbone/extra.2/extra.2.2/extra.2.2.2/Clip)
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /backbone/extra.3/extra.3.0/extra.3.0.0/Conv + PWN(/backbone/extra.3/extra.3.0/extra.3.0.2/Clip)
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /backbone/extra.3/extra.3.1/extra.3.1.0/Conv + PWN(/backbone/extra.3/extra.3.1/extra.3.1.2/Clip)
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /backbone/extra.3/extra.3.2/extra.3.2.0/Conv + PWN(/backbone/extra.3/extra.3.2/extra.3.2.2/Clip)
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /head/regression_head/module_list.0/module_list.0.0/module_list.0.0.0/Conv + PWN(/head/regression_head/module_list.0/module_list.0.0/module_list.0.0.2/Clip)
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /head/regression_head/module_list.0/module_list.0.1/Conv
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /head/regression_head/Reshape + /head/regression_head/Transpose
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /head/regression_head/Reshape_1
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /head/regression_head/module_list.1/module_list.1.0/module_list.1.0.0/Conv + PWN(/head/regression_head/module_list.1/module_list.1.0/module_list.1.0.2/Clip)
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /head/regression_head/module_list.1/module_list.1.1/Conv
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /head/regression_head/Reshape_2 + /head/regression_head/Transpose_1
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /head/regression_head/Reshape_3
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /head/regression_head/module_list.2/module_list.2.0/module_list.2.0.0/Conv + PWN(/head/regression_head/module_list.2/module_list.2.0/module_list.2.0.2/Clip)
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /head/regression_head/module_list.2/module_list.2.1/Conv
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /head/regression_head/Reshape_4 + /head/regression_head/Transpose_2
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /head/regression_head/Reshape_5
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /head/regression_head/module_list.3/module_list.3.0/module_list.3.0.0/Conv + PWN(/head/regression_head/module_list.3/module_list.3.0/module_list.3.0.2/Clip)
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /head/regression_head/module_list.3/module_list.3.1/Conv
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /head/regression_head/Reshape_6 + /head/regression_head/Transpose_3
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /head/regression_head/Reshape_7
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /head/regression_head/module_list.4/module_list.4.0/module_list.4.0.0/Conv + PWN(/head/regression_head/module_list.4/module_list.4.0/module_list.4.0.2/Clip)
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /head/regression_head/module_list.4/module_list.4.1/Conv
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /head/regression_head/Reshape_8 + /head/regression_head/Transpose_4
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /head/regression_head/Reshape_9
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /head/regression_head/module_list.5/module_list.5.0/module_list.5.0.0/Conv + PWN(/head/regression_head/module_list.5/module_list.5.0/module_list.5.0.2/Clip)
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /head/regression_head/module_list.5/module_list.5.1/Conv
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /head/regression_head/Reshape_10 + /head/regression_head/Transpose_5 + /head/regression_head/Reshape_11
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /head/regression_head/Reshape_1_output_0 copy
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /head/regression_head/Reshape_3_output_0 copy
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /head/regression_head/Reshape_5_output_0 copy
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /head/regression_head/Reshape_7_output_0 copy
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /head/regression_head/Reshape_9_output_0 copy
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /head/regression_head/Reshape_11_output_0 copy
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /head/classification_head/module_list.0/module_list.0.0/module_list.0.0.0/Conv + PWN(/head/classification_head/module_list.0/module_list.0.0/module_list.0.0.2/Clip)
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /head/classification_head/module_list.0/module_list.0.1/Conv
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /head/classification_head/Reshape + /head/classification_head/Transpose
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /head/classification_head/Reshape_1
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /head/classification_head/module_list.1/module_list.1.0/module_list.1.0.0/Conv + PWN(/head/classification_head/module_list.1/module_list.1.0/module_list.1.0.2/Clip)
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /head/classification_head/module_list.1/module_list.1.1/Conv
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /head/classification_head/Reshape_2 + /head/classification_head/Transpose_1
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /head/classification_head/Reshape_3
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /head/classification_head/module_list.2/module_list.2.0/module_list.2.0.0/Conv + PWN(/head/classification_head/module_list.2/module_list.2.0/module_list.2.0.2/Clip)
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /head/classification_head/module_list.2/module_list.2.1/Conv
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /head/classification_head/Reshape_4 + /head/classification_head/Transpose_2
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /head/classification_head/Reshape_5
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /head/classification_head/module_list.3/module_list.3.0/module_list.3.0.0/Conv + PWN(/head/classification_head/module_list.3/module_list.3.0/module_list.3.0.2/Clip)
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /head/classification_head/module_list.3/module_list.3.1/Conv
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /head/classification_head/Reshape_6 + /head/classification_head/Transpose_3
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /head/classification_head/Reshape_7
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /head/classification_head/module_list.4/module_list.4.0/module_list.4.0.0/Conv + PWN(/head/classification_head/module_list.4/module_list.4.0/module_list.4.0.2/Clip)
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /head/classification_head/module_list.4/module_list.4.1/Conv
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /head/classification_head/Reshape_8 + /head/classification_head/Transpose_4
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /head/classification_head/Reshape_9
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /head/classification_head/module_list.5/module_list.5.0/module_list.5.0.0/Conv + PWN(/head/classification_head/module_list.5/module_list.5.0/module_list.5.0.2/Clip)
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /head/classification_head/module_list.5/module_list.5.1/Conv
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /head/classification_head/Reshape_10 + /head/classification_head/Transpose_5 + /head/classification_head/Reshape_11
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /head/classification_head/Reshape_1_output_0 copy
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /head/classification_head/Reshape_3_output_0 copy
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /head/classification_head/Reshape_5_output_0 copy
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /head/classification_head/Reshape_7_output_0 copy
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /head/classification_head/Reshape_9_output_0 copy
+[10/09/2026-03:17:34] [I] [TRT] [GpuLayer] /head/classification_head/Reshape_11_output_0 copy
+[10/09/2026-03:17:36] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +158, GPU +151, now: CPU 446, GPU 2601 (MiB)
+[10/09/2026-03:17:39] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +240, GPU +239, now: CPU 686, GPU 2840 (MiB)
+[10/09/2026-03:17:39] [I] [TRT] Local timing cache in use. Profiling results in this builder pass will not be stored.
+[10/09/2026-03:29:34] [I] [TRT] Some tactics do not have sufficient workspace memory to run. Increasing workspace size may increase performance, please check verbose output.
+[10/09/2026-03:30:11] [I] [TRT] Detected 1 inputs and 14 output network tensors.
+[10/09/2026-03:30:11] [I] [TRT] Total Host Persistent Memory: 178176
+[10/09/2026-03:30:11] [I] [TRT] Total Device Persistent Memory: 2677248
+[10/09/2026-03:30:11] [I] [TRT] Total Scratch Memory: 3072
+[10/09/2026-03:30:11] [I] [TRT] [MemUsageStats] Peak memory usage of TRT CPU/GPU memory allocators: CPU 5 MiB, GPU 622 MiB
+[10/09/2026-03:30:11] [I] [TRT] [BlockAssignment] Algorithm ShiftNTopDown took 372.157ms to assign 20 blocks to 203 nodes requiring 5307911 bytes.
+[10/09/2026-03:30:11] [I] [TRT] Total Activation Memory: 5307911
+[10/09/2026-03:30:12] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 945, GPU 3350 (MiB)
+[10/09/2026-03:30:12] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +0, now: CPU 945, GPU 3350 (MiB)
+[10/09/2026-03:30:12] [I] [TRT] [MemUsageChange] TensorRT-managed allocation in building engine: CPU +3, GPU +8, now: CPU 3, GPU 8 (MiB)
+[10/09/2026-03:30:12] [I] [TRT] [MemUsageChange] Init CUDA: CPU +0, GPU +0, now: CPU 937, GPU 3348 (MiB)
+[10/09/2026-03:30:12] [I] [TRT] Loaded engine size: 5 MiB
+[10/09/2026-03:30:12] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 941, GPU 3348 (MiB)
+[10/09/2026-03:30:12] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +0, GPU +0, now: CPU 941, GPU 3348 (MiB)
+[10/09/2026-03:30:12] [I] [TRT] [MemUsageChange] TensorRT-managed allocation in engine deserialization: CPU +0, GPU +5, now: CPU 0, GPU 5 (MiB)
+[10/09/2026-03:30:12] [I] Engine built in 761.592 sec.
+[10/09/2026-03:30:12] [I] [TRT] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +0, now: CPU 901, GPU 3355 (MiB)
+[10/09/2026-03:30:12] [I] [TRT] [MemUsageChange] Init cuDNN: CPU +1, GPU +0, now: CPU 902, GPU 3355 (MiB)
+[10/09/2026-03:30:12] [I] [TRT] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +0, GPU +7, now: CPU 0, GPU 12 (MiB)
+[10/09/2026-03:30:12] [I] Using random values for input images
+[10/09/2026-03:30:12] [I] Created input binding for images with dimensions 1x3x320x320
+[10/09/2026-03:30:12] [I] Using random values for output bbox_regression
+[10/09/2026-03:30:12] [I] Created output binding for bbox_regression with dimensions 1x3234x4
+[10/09/2026-03:30:12] [I] Using random values for output cls_logits
+[10/09/2026-03:30:12] [I] Created output binding for cls_logits with dimensions 1x3234x91
+[10/09/2026-03:30:12] [I] Starting inference
+[10/09/2026-03:30:15] [I] Warmup completed 9 queries over 200 ms
+[10/09/2026-03:30:15] [I] Timing trace has 138 queries over 3.04354 s
+[10/09/2026-03:30:15] [I] 
+[10/09/2026-03:30:15] [I] === Trace details ===
+[10/09/2026-03:30:15] [I] Trace averages of 10 runs:
+[10/09/2026-03:30:15] [I] Average on 10 runs - GPU latency: 21.6367 ms - Host latency: 21.9341 ms (end to end 21.949 ms, enqueue 18.153 ms)
+[10/09/2026-03:30:15] [I] Average on 10 runs - GPU latency: 21.6404 ms - Host latency: 21.9377 ms (end to end 21.9528 ms, enqueue 18.5926 ms)
+[10/09/2026-03:30:15] [I] Average on 10 runs - GPU latency: 21.6333 ms - Host latency: 21.9307 ms (end to end 21.9458 ms, enqueue 18.6355 ms)
+[10/09/2026-03:30:15] [I] Average on 10 runs - GPU latency: 21.7455 ms - Host latency: 22.0426 ms (end to end 22.0578 ms, enqueue 14.8336 ms)
+[10/09/2026-03:30:15] [I] Average on 10 runs - GPU latency: 21.7736 ms - Host latency: 22.0707 ms (end to end 22.086 ms, enqueue 13.1218 ms)
+[10/09/2026-03:30:15] [I] Average on 10 runs - GPU latency: 21.7703 ms - Host latency: 22.0676 ms (end to end 22.0828 ms, enqueue 13.1396 ms)
+[10/09/2026-03:30:15] [I] Average on 10 runs - GPU latency: 21.7632 ms - Host latency: 22.0605 ms (end to end 22.0759 ms, enqueue 13.1659 ms)
+[10/09/2026-03:30:15] [I] Average on 10 runs - GPU latency: 21.7623 ms - Host latency: 22.0595 ms (end to end 22.0749 ms, enqueue 13.1694 ms)
+[10/09/2026-03:30:15] [I] Average on 10 runs - GPU latency: 21.7708 ms - Host latency: 22.0682 ms (end to end 22.0835 ms, enqueue 13.1737 ms)
+[10/09/2026-03:30:15] [I] Average on 10 runs - GPU latency: 21.7779 ms - Host latency: 22.0752 ms (end to end 22.0904 ms, enqueue 13.154 ms)
+[10/09/2026-03:30:15] [I] Average on 10 runs - GPU latency: 21.7725 ms - Host latency: 22.0699 ms (end to end 22.0851 ms, enqueue 13.159 ms)
+[10/09/2026-03:30:15] [I] Average on 10 runs - GPU latency: 21.7699 ms - Host latency: 22.0674 ms (end to end 22.0827 ms, enqueue 13.2019 ms)
+[10/09/2026-03:30:15] [I] Average on 10 runs - GPU latency: 21.7802 ms - Host latency: 22.0776 ms (end to end 22.0929 ms, enqueue 13.1745 ms)
+[10/09/2026-03:30:15] [I] 
+[10/09/2026-03:30:15] [I] === Performance summary ===
+[10/09/2026-03:30:15] [I] Throughput: 45.3419 qps
+[10/09/2026-03:30:15] [I] Latency: min = 21.8942 ms, max = 22.2656 ms, mean = 22.0387 ms, median = 22.0613 ms, percentile(99%) = 22.1206 ms
+[10/09/2026-03:30:15] [I] End-to-End Host Latency: min = 21.9089 ms, max = 22.2751 ms, mean = 22.0538 ms, median = 22.0771 ms, percentile(99%) = 22.1362 ms
+[10/09/2026-03:30:15] [I] Enqueue Time: min = 12.9966 ms, max = 19.1801 ms, mean = 14.4721 ms, median = 13.2023 ms, percentile(99%) = 18.885 ms
+[10/09/2026-03:30:15] [I] H2D Latency: min = 0.14563 ms, max = 0.146729 ms, mean = 0.146024 ms, median = 0.145996 ms, percentile(99%) = 0.146484 ms
+[10/09/2026-03:30:15] [I] GPU Compute Time: min = 21.5969 ms, max = 21.9695 ms, mean = 21.7414 ms, median = 21.7643 ms, percentile(99%) = 21.8228 ms
+[10/09/2026-03:30:15] [I] D2H Latency: min = 0.150024 ms, max = 0.152588 ms, mean = 0.151285 ms, median = 0.151321 ms, percentile(99%) = 0.152466 ms
+[10/09/2026-03:30:15] [I] Total Host Walltime: 3.04354 s
+[10/09/2026-03:30:15] [I] Total GPU Compute Time: 3.00031 s
+[10/09/2026-03:30:15] [I] Explanations of the performance metrics are printed in the verbose logs.
+[10/09/2026-03:30:15] [I] 
+&&&& PASSED TensorRT.trtexec [TensorRT v8201] # /usr/src/tensorrt/bin/trtexec --onnx=models/ssdlite_p50_fp32_320.onnx --saveEngine=engines/ssdlite_p50_fp16_320.engine --fp16 --workspace=1024
