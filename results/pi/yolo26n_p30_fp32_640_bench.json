@@ -1,0 +1,16 @@
+{
+ "model": "yolo26n_p30_fp32_640",
+ "runs": 229,
+ "threads": 4,
+ "latency_mean_ms": 87.38,
+ "latency_p95_ms": 89.39,
+ "fps": 11.4,
+ "end_to_end_mean_ms": 101.91,
+ "power_idle_w": 2.76,
+ "power_load_w": 6.64,
+ "temp_max_c": 74.7,
+ "bus_people": 0,
+ "bus_people_reference": 0,
+ "score_cosine_vs_fp32_reference": 1.0,
+ "onnxruntime": "1.30.0"
+}

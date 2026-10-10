@@ -1,0 +1,16 @@
+{
+ "model": "ssdlite_p50_fp32_320",
+ "runs": 977,
+ "threads": 4,
+ "latency_mean_ms": 20.47,
+ "latency_p95_ms": 21.44,
+ "fps": 48.8,
+ "end_to_end_mean_ms": 33.91,
+ "power_idle_w": 3.11,
+ "power_load_w": 6.63,
+ "temp_max_c": 74.7,
+ "bus_people": 2,
+ "bus_people_reference": 2,
+ "score_cosine_vs_fp32_reference": 1.0,
+ "onnxruntime": "1.30.0"
+}

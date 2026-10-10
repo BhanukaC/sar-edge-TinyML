@@ -1,0 +1,13 @@
+{
+ "model": "fomo-a035_p00_fp32_320",
+ "runs": 1638,
+ "latency_mean_ms": 12.21,
+ "latency_p95_ms": 12.84,
+ "model_time_mean_ms": 14.76,
+ "fps": 81.9,
+ "power_idle_w": 1.88,
+ "power_load_w": 3.91,
+ "temp_max_c": 64.2,
+ "bus_people": 17,
+ "crowd_people": 3
+}

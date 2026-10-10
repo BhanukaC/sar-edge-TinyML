@@ -1,0 +1,16 @@
+{
+ "model": "yolo26n_p50_int8_640",
+ "runs": 399,
+ "threads": 4,
+ "latency_mean_ms": 50.14,
+ "latency_p95_ms": 51.54,
+ "fps": 19.9,
+ "end_to_end_mean_ms": 62.38,
+ "power_idle_w": 2.91,
+ "power_load_w": 5.95,
+ "temp_max_c": 72.5,
+ "bus_people": 0,
+ "bus_people_reference": 0,
+ "score_cosine_vs_fp32_reference": 0.8536,
+ "onnxruntime": "1.30.0"
+}
