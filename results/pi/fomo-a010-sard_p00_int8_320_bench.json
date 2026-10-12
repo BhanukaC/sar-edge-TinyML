@@ -1,0 +1,13 @@
+{
+ "model": "fomo-a010-sard_p00_int8_320",
+ "runs": 2078,
+ "latency_mean_ms": 9.62,
+ "latency_p95_ms": 9.86,
+ "model_time_mean_ms": 6.54,
+ "fps": 103.9,
+ "power_idle_w": 1.79,
+ "power_load_w": 3.82,
+ "temp_max_c": 58.7,
+ "bus_people": 14,
+ "crowd_people": 4
+}
