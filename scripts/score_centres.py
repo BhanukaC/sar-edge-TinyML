@@ -1,10 +1,14 @@
 # sar-edge/scripts/score_centres.py   run on the laptop from sar-edge/:
-#   python scripts/score_centres.py results/pi/fomo_test/*.json results/jetson/fomo_test/*.json
+#   python scripts/score_centres.py <tolerance px> results/pi/fomo_test/*.json results/jetson/fomo_test/*.json
 # Scores detection centres against the SARD test labels with one rule for every model:
-# a detection is correct if its centre lies inside a labelled person box that has not
-# been matched yet (highest scores matched first). Prints precision, recall and F1.
+# a detection is correct if its centre lies inside a labelled person box, widened by
+# <tolerance> pixels on each side, that has not been matched yet (highest scores first).
+# Tolerance 0 = strict; 24 = half a FOMO grid cell in the frame (FOMO's own precision).
 import os, sys, json
 import cv2
+
+TOL = float(sys.argv[1])
+FILES = sys.argv[2:]
 
 
 def gt_boxes(image_name):
@@ -30,7 +34,7 @@ def gt_boxes(image_name):
 
 
 gt_cache = {}
-for path in sys.argv[1:]:
+for path in FILES:
     with open(path) as fh:
         dets = json.load(fh)
     tp = fp = fn = 0
@@ -43,7 +47,9 @@ for path in sys.argv[1:]:
                 (
                     i
                     for i, (x1, y1, x2, y2) in enumerate(gts)
-                    if i not in used and x1 <= x <= x2 and y1 <= y <= y2
+                    if i not in used
+                    and x1 - TOL <= x <= x2 + TOL
+                    and y1 - TOL <= y <= y2 + TOL
                 ),
                 None,
             )
