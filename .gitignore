@@ -1,5 +1,6 @@
 .env
-data/SARD/
+data/SARD/*
+!data/SARD/test/
 data/fomo_upload/
 results/refs/
 engines/
