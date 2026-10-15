@@ -7,3 +7,5 @@ engines/
 tmp/
 build.log
 data/fomo_full/
+runs/
+*.cache
