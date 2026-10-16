@@ -10,7 +10,8 @@ import cv2, numpy as np, torch, torch.nn as nn, torch_pruning as tp
 from ultralytics import YOLO
 from ultralytics.nn.modules.block import C2f
 from ultralytics.utils import ASSETS
-from prune_yolo import SplitC2f, first_tensor
+# SplitC2f and first_tensor now live in yolo_prune_utils.py (see that file for why)
+from yolo_prune_utils import SplitC2f, first_tensor
 from common import prep_yolo, PERSON_YOLO
 
 RATIO = float(sys.argv[1]) if len(sys.argv) > 1 else 0.05

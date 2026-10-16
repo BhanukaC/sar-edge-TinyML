@@ -10,7 +10,8 @@ import cv2, numpy as np, torch, torch_pruning as tp, onnxruntime as ort
 from ultralytics import YOLO
 from ultralytics.nn.modules.block import C2f
 from ultralytics.utils import ASSETS
-from prune_yolo import SplitC2f, first_tensor
+# SplitC2f and first_tensor now live in yolo_prune_utils.py (see that file for why)
+from yolo_prune_utils import SplitC2f, first_tensor
 from common import prep_yolo, post_yolo_raw, post_yolo_e2e, PERSON_YOLO
 
 GRAPH = (
