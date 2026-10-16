@@ -78,11 +78,18 @@ def to_int8(src, dst, prep, keep_head_fp32=False):
 
 for tag in ["p00", "p30", "p50"]:
     to_int8(
-        "models/yolo26n_%s_fp32_640.onnx" % tag,
-        "models/yolo26n_%s_int8_640.onnx" % tag,
+        "models/yolo26n-sard_%s_fp32_640.onnx" % tag,
+        "models/yolo26n-sard_%s_int8_640.onnx" % tag,
         prep_yolo,
         keep_head_fp32=True,
     )
+    # to_int8(
+    #     "models/yolo26n_%s_fp32_640.onnx" % tag,
+    #     "models/yolo26n_%s_int8_640.onnx" % tag,
+    #     prep_yolo,
+    #     keep_head_fp32=True,
+    # )
+
     to_int8(
         "models/ssdlite_%s_fp32_320.onnx" % tag,
         "models/ssdlite_%s_int8_320.onnx" % tag,
