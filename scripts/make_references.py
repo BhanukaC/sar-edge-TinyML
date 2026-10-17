@@ -12,7 +12,6 @@ import cv2, numpy as np, onnxruntime as ort
 import common as C
 
 os.makedirs("references", exist_ok=True)
-anchors = np.load("models/ssdlite_anchors_320.npy")
 images = sorted(glob.glob("data/smoke/*.jpg"))
 assert (
     images
@@ -22,6 +21,7 @@ assert (
 def run(model_path):
     s = ort.InferenceSession(model_path, providers=["CPUExecutionProvider"])
     name = os.path.basename(model_path).replace(".onnx", "")
+    anchors = np.load(C.ssd_anchor_file(name))      # SARD models use their own anchors
     boxes, raw = {}, {}
     for f in images:
         img = cv2.imread(f)

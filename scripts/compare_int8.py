@@ -12,12 +12,13 @@ import glob
 import cv2, numpy as np, onnxruntime as ort
 import common as C
 
-anchors = np.load("models/ssdlite_anchors_320.npy")
+
 images = sorted(glob.glob("data/smoke/*.jpg"))
 
 
 def outputs(path):
     """Return {image: (person boxes, raw box values, raw score values)} for one model."""
+    anchors = np.load(C.ssd_anchor_file(path))      # SARD models use their own anchors
     s = ort.InferenceSession(path, providers=["CPUExecutionProvider"])
     res = {}
     for f in images:

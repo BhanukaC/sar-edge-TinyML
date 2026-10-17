@@ -90,8 +90,13 @@ for tag in ["p00", "p30", "p50"]:
     #     keep_head_fp32=True,
     # )
 
+    # to_int8(
+    #     "models/ssdlite_%s_fp32_320.onnx" % tag,
+    #     "models/ssdlite_%s_int8_320.onnx" % tag,
+    #     prep_ssd,
+    # )
     to_int8(
-        "models/ssdlite_%s_fp32_320.onnx" % tag,
-        "models/ssdlite_%s_int8_320.onnx" % tag,
+        "models/ssdlite-sard_%s_fp32_320.onnx" % tag,
+        "models/ssdlite-sard_%s_int8_320.onnx" % tag,
         prep_ssd,
     )

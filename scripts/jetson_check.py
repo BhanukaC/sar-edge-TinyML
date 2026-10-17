@@ -8,7 +8,6 @@ import numpy as np
 import common as C
 
 TRT = "/usr/src/tensorrt/bin/trtexec"
-anchors = np.load("models/ssdlite_anchors_320.npy")
 os.makedirs("tmp", exist_ok=True)
 
 
@@ -30,6 +29,7 @@ def cosine(a, b):
 
 for engine in sorted(glob.glob("engines/*.engine")):
     name = os.path.basename(engine)[:-7]
+    anchors = np.load(C.ssd_anchor_file(name))      # SARD models use their own anchors
     ref = name.replace("_fp16_", "_fp32_")
     raw = np.load("references/raw_%s.npz" % ref)
     with open("references/reference_%s.json" % ref) as fh:

@@ -15,7 +15,6 @@ PATTERN = sys.argv[1] if len(sys.argv) > 1 else "models/*.onnx"
 WARMUP, RUNS = 10, 100
 OUT = "results/pi"
 os.makedirs(OUT, exist_ok=True)
-anchors = np.load("models/ssdlite_anchors_320.npy")
 images = sorted(glob.glob("data/smoke/*.jpg"))
 
 
@@ -57,6 +56,7 @@ def cosine(a, b):
 
 def bench(path):
     name = os.path.basename(path)[:-5]
+    anchors = np.load(C.ssd_anchor_file(name))      # SARD models use their own anchors
     is_ssd = name.startswith("ssdlite")
     opts = ort.SessionOptions()
     opts.intra_op_num_threads = 4  # the Pi 5 has 4 cores

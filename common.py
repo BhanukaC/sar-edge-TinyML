@@ -139,7 +139,7 @@ def post_yolo_raw(out, r, pad):
     return np.hstack([undo_letterbox(b[k], r, pad), s[k, None]])
 
 
-def post_ssd(reg, logits, anchors, scale):
+def post_ssd(reg, logits, anchors, scale, conf=CONF, iou=IOU):
     """SSDLite raw output -> person boxes.
 
     reg: (1, N, 4) box offsets relative to each anchor.
@@ -169,9 +169,16 @@ def post_ssd(reg, logits, anchors, scale):
         logits[0] - logits[0].max(1, keepdims=True)
     )  # subtract max for stability
     s = (e / e.sum(1, keepdims=True))[:, PERSON_TV]
-    boxes, s = boxes[s >= CONF], s[s >= CONF]
-    k = nms(boxes, s)
+    boxes, s = boxes[s >= conf], s[s >= conf]
+    k = nms(boxes, s, iou)
     sx, sy = scale
     return np.hstack(
         [boxes[k] * [sx, sy, sx, sy], s[k, None]]
     )  # back to original pixels
+
+
+def ssd_anchor_file(model_name):
+    """SARD-trained SSDLite models use smaller, SARD-sized anchors; the smoke-test models the COCO ones."""
+    if "sard" in model_name:
+        return "models/ssdlite-sard_anchors_320.npy"
+    return "models/ssdlite_anchors_320.npy"
