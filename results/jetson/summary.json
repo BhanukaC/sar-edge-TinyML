@@ -1,5 +1,59 @@
 [
  {
+  "run": "ssdlite-sard_p00_fp16_320_5W",
+  "gpu_mean_ms": 28.5878,
+  "gpu_p99_ms": 28.6875,
+  "fps": 34.7642,
+  "power_idle_w": 1.9,
+  "power_load_w": 3.75,
+  "gpu_temp_max_c": 40.5
+ },
+ {
+  "run": "ssdlite-sard_p00_fp32_320_5W",
+  "gpu_mean_ms": 32.7381,
+  "gpu_p99_ms": 32.8418,
+  "fps": 30.3812,
+  "power_idle_w": 1.9,
+  "power_load_w": 3.77,
+  "gpu_temp_max_c": 40.5
+ },
+ {
+  "run": "ssdlite-sard_p30_fp16_320_5W",
+  "gpu_mean_ms": 22.7348,
+  "gpu_p99_ms": 22.8496,
+  "fps": 43.6463,
+  "power_idle_w": 1.92,
+  "power_load_w": 3.7,
+  "gpu_temp_max_c": 41.0
+ },
+ {
+  "run": "ssdlite-sard_p30_fp32_320_5W",
+  "gpu_mean_ms": 24.8872,
+  "gpu_p99_ms": 24.9971,
+  "fps": 39.8972,
+  "power_idle_w": 1.94,
+  "power_load_w": 3.64,
+  "gpu_temp_max_c": 41.0
+ },
+ {
+  "run": "ssdlite-sard_p50_fp16_320_5W",
+  "gpu_mean_ms": 18.0814,
+  "gpu_p99_ms": 18.918,
+  "fps": 53.6122,
+  "power_idle_w": 1.87,
+  "power_load_w": 3.57,
+  "gpu_temp_max_c": 37.5
+ },
+ {
+  "run": "ssdlite-sard_p50_fp32_320_5W",
+  "gpu_mean_ms": 19.5262,
+  "gpu_p99_ms": 19.5977,
+  "fps": 50.7548,
+  "power_idle_w": 1.94,
+  "power_load_w": 3.68,
+  "gpu_temp_max_c": 41.5
+ },
+ {
   "run": "ssdlite_p00_fp16_320_5W",
   "gpu_mean_ms": 32.9091,
   "gpu_p99_ms": 32.9688,
@@ -37,8 +91,8 @@
  },
  {
   "run": "ssdlite_p50_fp16_320_5W",
-  "gpu_mean_ms": null,
-  "gpu_p99_ms": null,
+  "gpu_mean_ms": 21.7291,
+  "gpu_p99_ms": 21.8223,
   "fps": 45.368,
   "power_idle_w": 1.14,
   "power_load_w": 3.53,
