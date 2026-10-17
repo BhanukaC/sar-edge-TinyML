@@ -8,7 +8,7 @@ if ! ls engines/*.engine > /dev/null 2>&1; then
   exit 1
 fi
 MODE=$(sudo nvpmodel -q | grep -o "MAXN\|5W" | head -1)        # current power mode
-for eng in engines/*.engine; do
+for eng in ${1:-engines/*.engine}; do
   name=$(basename "$eng" .engine)
   echo "=== $name ($MODE)  $(date +%H:%M)"
   sleep 10                                                     # let the board settle

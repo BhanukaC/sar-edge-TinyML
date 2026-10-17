@@ -54,6 +54,60 @@
   "gpu_temp_max_c": 37.5
  },
  {
+  "run": "yolo26n-sard_p00_fp16_640_5W",
+  "gpu_mean_ms": 62.6769,
+  "gpu_p99_ms": 62.7686,
+  "fps": 15.8005,
+  "power_idle_w": 1.89,
+  "power_load_w": 3.72,
+  "gpu_temp_max_c": 39.5
+ },
+ {
+  "run": "yolo26n-sard_p00_fp32_640_5W",
+  "gpu_mean_ms": 82.2723,
+  "gpu_p99_ms": 82.416,
+  "fps": 12.0649,
+  "power_idle_w": 1.9,
+  "power_load_w": 3.92,
+  "gpu_temp_max_c": 40.5
+ },
+ {
+  "run": "yolo26n-sard_p30_fp16_640_5W",
+  "gpu_mean_ms": 59.9769,
+  "gpu_p99_ms": 60.0732,
+  "fps": 16.5046,
+  "power_idle_w": 1.92,
+  "power_load_w": 3.74,
+  "gpu_temp_max_c": 41.0
+ },
+ {
+  "run": "yolo26n-sard_p30_fp32_640_5W",
+  "gpu_mean_ms": 67.6413,
+  "gpu_p99_ms": 67.7949,
+  "fps": 14.6511,
+  "power_idle_w": 1.93,
+  "power_load_w": 3.9,
+  "gpu_temp_max_c": 41.5
+ },
+ {
+  "run": "yolo26n-sard_p50_fp16_640_5W",
+  "gpu_mean_ms": 43.3344,
+  "gpu_p99_ms": 43.4258,
+  "fps": 22.7547,
+  "power_idle_w": 1.93,
+  "power_load_w": 3.74,
+  "gpu_temp_max_c": 42.0
+ },
+ {
+  "run": "yolo26n-sard_p50_fp32_640_5W",
+  "gpu_mean_ms": 51.7297,
+  "gpu_p99_ms": 51.8438,
+  "fps": 19.1049,
+  "power_idle_w": 1.93,
+  "power_load_w": 3.92,
+  "gpu_temp_max_c": 42.0
+ },
+ {
   "run": "yolo26n_p00_fp16_640_5W",
   "gpu_mean_ms": 70.431,
   "gpu_p99_ms": 70.6035,
