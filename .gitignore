@@ -9,3 +9,5 @@ build.log
 data/fomo_full/
 runs/
 *.cache
+__pycache__/
+
