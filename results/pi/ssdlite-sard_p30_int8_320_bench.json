@@ -1,0 +1,16 @@
+{
+ "model": "ssdlite-sard_p30_int8_320",
+ "runs": 1410,
+ "threads": 4,
+ "latency_mean_ms": 14.18,
+ "latency_p95_ms": 14.86,
+ "fps": 70.5,
+ "end_to_end_mean_ms": 17.81,
+ "power_idle_w": 2.66,
+ "power_load_w": 6.43,
+ "temp_max_c": 71.4,
+ "bus_people": 2,
+ "bus_people_reference": 1,
+ "score_cosine_vs_fp32_reference": 0.9923,
+ "onnxruntime": "1.30.0"
+}
