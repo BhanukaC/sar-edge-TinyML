@@ -4,9 +4,9 @@
   "people_found": 14,
   "recall_over_flight": 1.0,
   "frames": 392,
-  "end_to_end_ms_mean": 96.60445001660561,
-  "end_to_end_ms_p95": 98.80220890045166,
-  "jetson_infer_ms_mean": 70.37333140567857,
+  "end_to_end_ms_mean": 96.56007739962364,
+  "end_to_end_ms_p95": 98.88004064559937,
+  "jetson_infer_ms_mean": 70.637546023544,
   "home": [
     -10.0,
     -40.0
