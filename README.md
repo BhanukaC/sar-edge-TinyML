@@ -25,13 +25,15 @@ Best configuration of each model on each device (test set: 197 SARD images, 655 
 
 FOMO's F1 comes from Edge Impulse Studio and is not directly comparable with mAP50. YOLO26n runs at 640 × 640, SSDLite and FOMO at 320 × 320.
 
-Recommendation: YOLO26n p00 FP16 on the Jetson Nano when detection accuracy is the priority; FOMO α 0.35 INT8 on the Raspberry Pi 5 for low-power scanning; SSDLite as a faster alternative when computational efficiency is prioritised. In the Webots simulation, YOLO26n p00 FP16 on the Jetson found all 14 people and covered 258 of 275 in-view person-frames (94%), with the full loop at about 97 ms per frame (about 10 FPS). A second flight with the same setup also found all 14 people.
+Recommendation: YOLO26n p00 FP16 on the Jetson Nano when detection accuracy is the priority; FOMO α 0.35 INT8 on the Raspberry Pi 5 for low-power scanning; SSDLite as a faster alternative when computational efficiency is prioritised. In the Webots simulation, YOLO26n p00 FP16 on the Jetson found all 14 people and covered 258 of 275 in-view person-frames (94%), with the full loop at about 97 ms per frame (about 10 FPS). A second flight with the same setup (the one saved in `results/sim/`) also found all 14 people and covered 275 of 288 in-view person-frames (95%).
 
 ## Repository layout
 
 ```
 sar-edge-TinyML/
 ├── common.py              shared pre- and post-processing (Python 3.6 compatible, used on every machine)
+├── requirements.txt       pinned laptop environment (training, export, evaluation)
+├── yolo26n.pt             COCO-pretrained YOLO26n weights (starting point for training)
 ├── data/
 │   ├── sard.yaml          Ultralytics dataset config for SARD v16
 │   ├── SARD/              the dataset (only test/ is in Git; download the rest)
@@ -41,6 +43,7 @@ sar-edge-TinyML/
 ├── results/               benchmark results, logs and figures per device
 ├── scripts/               training, export, benchmarking and evaluation scripts
 ├── sim/                   Webots world and controller
+├── smoke_test_plan/       Phase 1 smoke-test plan for the Raspberry Pi 5 and Jetson Nano
 └── engines/               TensorRT engines (built on the Jetson, not in Git)
 ```
 
@@ -65,9 +68,15 @@ On both boards, run `git config core.fileMode false` so file permissions do not 
 
 ## Setup
 
+On the laptop, install the pinned environment:
+
+```bash
+pip install -r requirements.txt
+```
+
 ### Dataset
 
-Create a `.env` file in the repository root with your Roboflow key (`ROBOFLOW_API_KEY=...`), then:
+Copy `.env.example` to `.env` in the repository root and set your Roboflow key (`ROBOFLOW_API_KEY=...`), then:
 
 ```bash
 python scripts/download_sard.py        # SARD v16, full frames, YOLO format
@@ -166,11 +175,17 @@ A Mavic 2 Pro flies a lawnmower search pattern at 25 m over 14 pedestrians, star
    sudo jetson_clocks
    python3 scripts/jetson_detect_server.py           # loads engines/yolo26n-sard_p00_fp16_640.engine, port 5000
    ```
-2. On the Mac, open `sim/worlds/sar_search.wbt` in Webots (Python command set to the project's venv), check the `HOST` address in `sim/controllers/sar_patrol/sar_patrol.py`, then press Reset and Play.
+2. On the Mac, open `sim/worlds/sar_search.wbt` in Webots (Python command set to the project's venv), check the `HOST` address in `sim/controllers/sar_patrol/sar_patrol.py` (default `192.168.2.3`, or set the `JETSON_HOST` environment variable), then press Reset and Play.
 
 The controller shows the annotated camera view live, and writes `results/sim/flight.mp4`, `frames.csv` and `summary.json`. `scripts/stream_test_client.py` streams SARD test images to the same server, to measure the end-to-end loop with real frames.
 
 Notes: on recent macOS, Terminal, VS Code and Webots each need Local Network permission (System Settings, Privacy & Security, Local Network) to reach the Jetson. Webots R2025a does not start on macOS 27; use a newer nightly build.
+
+## Other scripts
+
+- Figures: `plot_tradeoff.py` (accuracy vs. energy, `results/tradeoff_accuracy_energy.png`), `plot_training.py` (training curves)
+- Phase 1 smoke test with COCO models: `export_yolo.py`, `export_ssdlite.py`, `prune_yolo.py`, `prune_ssdlite.py`, `make_fomo_upload.py`
+- Checks and debugging: `check_onnx.py`, `check_eim_info.py`, `check_pruning_yolo.py`, `verify_pruning_yolo.py`, `compare_int8.py`, `box_size_stats.py`, `draw_fomo.py`, `draw_references.py`, `debug_prune_groups.py`, `debug_ssdlite.py`, `debug_yolo.py`
 
 ## Known limitations
 
