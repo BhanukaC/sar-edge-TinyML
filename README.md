@@ -25,7 +25,7 @@ Best configuration of each model on each device (test set: 197 SARD images, 655 
 
 FOMO's F1 comes from Edge Impulse Studio and is not directly comparable with mAP50. YOLO26n runs at 640 × 640, SSDLite and FOMO at 320 × 320.
 
-Recommendation: YOLO26n p00 FP16 on the Jetson Nano when accuracy matters most; FOMO α 0.35 INT8 on the Raspberry Pi 5 for low-power scanning. In the Webots simulation, YOLO26n p00 FP16 on the Jetson found all 14 people, covered 94% of in-view person-frames, and ran the full loop at about 97 ms per frame (about 10 FPS).
+Recommendation: YOLO26n p00 FP16 on the Jetson Nano when detection accuracy is the priority; FOMO α 0.35 INT8 on the Raspberry Pi 5 for low-power scanning; SSDLite as a faster alternative when computational efficiency is prioritised. In the Webots simulation, YOLO26n p00 FP16 on the Jetson found all 14 people and covered 258 of 275 in-view person-frames (94%), with the full loop at about 97 ms per frame (about 10 FPS). A second flight with the same setup also found all 14 people.
 
 ## Repository layout
 
@@ -75,7 +75,7 @@ python scripts/make_image_sets.py      # data/smoke (benchmark images) and data/
 python scripts/pick_crowd.py           # adds data/smoke/crowd.jpg
 ```
 
-Splits: 1,387 train, 396 validation, 197 test images (4,598, 1,277 and 655 labelled people).
+Splits: 1,387 train, 396 validation, 197 test images (4,598, 1,277 and 655 labelled people). YOLO26n and SSDLite use these splits. For FOMO, train and validation were uploaded together to Edge Impulse Studio, which made a random 20% validation split (1,426 train, 357 validation); the 197 test images stay separate.
 
 ## Training and export (laptop)
 
@@ -110,7 +110,7 @@ SSDLite's default COCO anchors (smallest about 64 px) are far larger than SARD's
 
 ### FOMO
 
-FOMO was trained in Edge Impulse Studio (MobileNetV2 α 0.35 and α 0.1, 320 × 320 RGB, fit longest axis, 33 training cycles, learning rate 0.001). `scripts/make_fomo_upload_full.py` prepares the upload set. Deploy as **Linux (AARCH64)** (int8 and float32) for the Pi and **NVIDIA Jetson** for the Jetson, save the files as `models/fomo-<alpha>-sard_p00_<format>_320.eim`, and make them executable (`chmod +x`).
+FOMO was trained in Edge Impulse Studio (MobileNetV2 α 0.35 and α 0.1, 320 × 320 RGB, fit longest axis, 33 training cycles (limited by the free plan's training time), learning rate 0.001). `scripts/make_fomo_upload_full.py` prepares the upload set. Deploy as **Linux (AARCH64)** (int8 and float32) for the Pi and **NVIDIA Jetson** for the Jetson, save the files as `models/fomo-<alpha>-sard_p00_<format>_320.eim`, and make them executable (`chmod +x`).
 
 ### References for the device checks
 
@@ -179,10 +179,14 @@ Notes: on recent macOS, Terminal, VS Code and Webots each need Local Network per
 - Jetson power for YOLO26n and SSDLite is averaged over the whole trtexec run, including engine loading, so their energy per frame is likely somewhat underestimated.
 - Power comes from the boards' own sensors, not an external power meter.
 - The Jetson was tested in 5 W mode only.
+- Idle power differed between measurement sessions, which may affect energy comparisons.
+- The pruned YOLO26n models were still improving after 50 retraining epochs, while SSDLite started overfitting after about 15 to 20 epochs.
+- YOLO26n (640 × 640) and SSDLite (320 × 320) use different input sizes, which affects both accuracy and power.
+- The Webots simulation shows the end-to-end pipeline works, but not real-world accuracy, and energy use during flight was not measured.
 
 ## References
 
-- SARD: S. Sambolek and M. Ivasic-Kos, "Automatic Person Detection in Search and Rescue Operations Using Deep CNN Detectors", IEEE Access, 2021. Dataset on [Roboflow](https://universe.roboflow.com/datasets-pdabr/sard-8xjhy).
+- SARD: S. Sambolek and M. Ivasic-Kos, "Automatic Person Detection in Search and Rescue Operations Using Deep CNN Detectors", IEEE Access, 2021. Dataset on [Roboflow](https://universe.roboflow.com/datasets-pdabr/sard-8xjhy) and [Kaggle](https://www.kaggle.com/datasets/nikolasgegenava/sard-search-and-rescue).
 - [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26)
 - A. Howard et al., "Searching for MobileNetV3", 2019, [arXiv:1905.02244](https://arxiv.org/abs/1905.02244)
 - W. Liu et al., "SSD: Single Shot MultiBox Detector", ECCV 2016, [arXiv:1512.02325](https://arxiv.org/abs/1512.02325)
